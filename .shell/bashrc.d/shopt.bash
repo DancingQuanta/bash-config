@@ -8,7 +8,7 @@ shopt -s checkwinsize
 shopt -s autocd
 shopt -s cdspell
 shopt -s cdable_vars
-shopt -s failglob
+#shopt -s failglob
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
