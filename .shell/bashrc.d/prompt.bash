@@ -41,3 +41,14 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
+GITPROMPT="$HOME/.shell/source.d/git-prompt.sh"
+if [ -f $GITPROMPT ]; then
+  source $GITPROMPT
+  echo "Activating git prompt"
+  GIT_PS1_SHOWDIRTYSTATE=1
+  GIT_PS1_SHOWCOLORHINTS=1
+  GIT_PS1_SHOWSTASHSTATE=1
+  GIT_PS1_SHOWUPSTREAM="auto"
+  PROMPT_COMMAND='__git_ps1 "" "\h:\W \u\\\$ " "[%s]\n"'
+fi
