@@ -13,3 +13,6 @@ shopt -s cdable_vars
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 shopt -s globstar
+
+# Don't complete on an empty line!
+shopt -s no_empty_cmd_completion
