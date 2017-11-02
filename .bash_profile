@@ -1,20 +1,13 @@
-if [ -f $HOME/.bashrc ]; then
-  source $HOME/.bashrc
-fi
+#!/usr/bin/env bash
+## DancingQuanta/bash-config - https://github.com/DancingQuanta/bash-config
+## $HOME/.bash_profile
+##
+## Based on https://github.com/ek9/shell-config
+##
+## This file is executed by an interactive login bash shell
 
-# load all files from .shell/login.d directory
-if [ -d $HOME/.shell/login.d ]; then
-  for file in $HOME/.shell/login.d/*.sh; do
-    source $file
-  done
-fi
+# always load .profile
+[[ -f $HOME/.profile ]] && . $HOME/.profile
 
-# set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CONFIG_DIRS="/etc/xdg"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_DATA_DIRS="/usr/local/share/:/usr/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-
+# always load .bashrc
+[[ -f $HOME/.bashrc ]] && . $HOME/.bashrc

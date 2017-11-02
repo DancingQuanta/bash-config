@@ -1,0 +1,14 @@
+## DancingQuanta/bash-config - https://github.com/DancingQuanta/bash-config
+## bash-config.git
+## Setup DancingQuanta/bash-config and dependant repositories
+
+### MAIN REPOSITORY - cloned via vcsh
+# bash-config
+[$HOME/.config/vcsh/repo.d/bash-config.git]
+checkout = 
+  vcsh clone https://github.com/DancingQuanta/bash-config
+  mkdir -p $HOME/.config/bash/source.d
+  wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -P $HOME/.config/bash/source.d
+  wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -P $HOME/.config/bash/source.d 
+
+

@@ -1,4 +1,7 @@
-## Debian - raspberry pi
+#!/usr/bin/env bash
+## DancingQuanta/bash-config - https://github.com/DancingQuanta/bash-config
+## 65-prompt.bash
+## bash prompt customization
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
@@ -43,7 +46,8 @@ PS1_TIME=${SH_RED}"\t"
 PS1_LOCATION=${SH_BLUE}"\w"
 END=${SH_END}
 # Activate git prompt
-GITPROMPT="$HOME/.shell/source.d/git-prompt.sh"
+GITPROMPT="$HOME/.config/bash/source.d/git-prompt.sh"
+GITCOMP="$HOME/.config/bash/source.d/git-completion.sh"
 if [ -f $GITPROMPT ]; then
   source $GITPROMPT
   PS1_GIT=${SH_YELLOW}'$(__git_ps1 "\n(%s)")'
@@ -63,3 +67,7 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
+if [ -f $GITCOMP ]; then
+  source $GITCOMP
+fi
