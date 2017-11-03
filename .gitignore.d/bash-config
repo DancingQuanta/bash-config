@@ -13,3 +13,5 @@
 !/.config/bash/config.d
 !/.config/bash/config.d/*
 !/.config/liquidpromptrc
+!/.config/liquidprompt
+!/.config/liquidprompt/*
