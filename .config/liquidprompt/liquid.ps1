@@ -34,8 +34,8 @@ LP_PS1="${LP_PS1_PREFIX}${LP_TIME}"
 LP_PS1="${LP_PS1}${LP_BRACKET_OPEN}${LP_USER}${LP_HOST}${LP_PERM}"
 LP_PS1="${LP_PS1}${LP_PWD}${LP_BRACKET_CLOSE}${LP_VENV}${LP_PROXY}"
 
-# Add GIT infos
-LP_PS1="${LP_PS1}${LP_GIT}"
+# Add VCS infos
+LP_PS1="${LP_PS1}${LP_VCS}"
 
 # add return code and prompt mark
 LP_PS1="${LP_PS1}${LP_RUNTIME}${LP_ERR}${LP_MARK_PREFIX}${LP_MARK}${LP_PS1_POSTFIX}"
