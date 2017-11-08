@@ -32,3 +32,22 @@ if test -d "$HOME/.config/bash/config.d/"; then
 	done
 	unset bash_config
 fi
+
+# Local configuration
+
+# load shell agnostic config files from $HOME/.config/shell/config-local.d
+if test -d "$HOME/.config/shell/config-local.d/"; then
+	for shell_config_local in $HOME/.config/shell/config-local.d/*.sh; do
+		test -r "$shell_config_local" && . "$shell_config_local"
+	done
+	unset shell_config_local
+fi
+
+# load bash specific config files from $HOME/.config/bash/config.d
+if test -d "$HOME/.config/bash/config-local.d/"; then
+	for bash_config_local in $HOME/.config/bash/config-local.d/*.bash; do
+		test -r "$bash_config_local" && . "$bash_config_local"
+	done
+	unset bash_config_local
+fi
+
