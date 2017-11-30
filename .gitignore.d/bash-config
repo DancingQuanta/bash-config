@@ -17,3 +17,6 @@
 !/.config/liquidpromptrc
 !/.config/liquidprompt
 !/.config/liquidprompt/*
+!/.local
+!/.local/bin
+!/.local/bin/assh

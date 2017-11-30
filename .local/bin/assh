@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# - Enable gpg agent forwarding (handles figuring out the paths to use using
+#   gpgconf) and auxiliary TCP forwarding (See $FORWARD_OPTIONS below).
+
+set -e
+
+HOST=$1
+if [ -z "$HOST" ]; then
+  echo "Supply a HOSTname"
+  exit 1
+fi
+
+# SSH command
+SSH="ssh $HOST"
+
+echo "Starting"
+# Figure out local and remote GPG socket paths
+echo "Getting GPG sockets"
+LOCAL_GPG_SOCKET=$(gpgconf --list-dir agent-extra-socket)
+REMOTE_GPG_SOCKET=$($SSH gpgconf --list-dir agent-socket)
+
+# remove any forwarded gpg socket (which sshd does not).
+echo "Removing any existing GPG sockets"
+$SSH rm -f "$REMOTE_GPG_SOCKET"
+echo "$LOCAL_GPG_SOCKET"
+echo "$REMOTE_GPG_SOCKET"
+$SSH -o RemoteForward="$REMOTE_GPG_SOCKET $LOCAL_GPG_SOCKET" -o ExitOnForwardFailure=yes
+
+echo "After"
